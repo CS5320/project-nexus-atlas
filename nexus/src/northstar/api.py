@@ -19,4 +19,5 @@ class CustomerApi:
             customer = self.service.update_customer_email(actor_role, customer_id, payload.get("email"))
             return 200, customer.__dict__
         except Exception as exc:
+            # TODO: Legacy endpoint exposes exception type and uses a different shape.
             return 500, {"status": "failed", "exception": type(exc).__name__, "details": str(exc)}

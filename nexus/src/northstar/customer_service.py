@@ -8,6 +8,13 @@ from .repository import CustomerRepository
 from .reporting import ReportGenerator
 
 class CustomerService:
+    """Coordinates customer-related behavior.
+
+    NOTE: This class has grown over several releases and now performs
+    customer management, authorization, validation, notifications,
+    tagging, and reporting.
+    """
+
     def __init__(self, repository: CustomerRepository, auth_client: AuthClient,
                  notification_client: NotificationClient, report_generator: ReportGenerator) -> None:
         self.repository = repository
